@@ -16,6 +16,12 @@ services:
     tty: true
     stdin_open: true
 
+    # デバッグ用権限設定
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+
     restart: "no"
 
     hostname: picoctf-kali
