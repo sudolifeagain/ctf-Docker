@@ -1,0 +1,21 @@
+services:
+  kali:
+    container_name: kali
+    build:
+      context: .
+      dockerfile: Dockerfile.kali
+
+    # ホストOSの./picoCTFフォルダを、コンテナ内の /workspace に共有する
+    volumes:
+      - ./picoCTF:/workspace
+
+    # コンテナ起動時の初期作業ディレクトリ
+    working_dir: /workspace
+
+    # TTYと標準入力を有効
+    tty: true
+    stdin_open: true
+
+    restart: "no"
+
+    hostname: picoctf-kali
