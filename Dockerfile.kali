@@ -26,6 +26,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     manpages-dev \
     groff-base \
     sudo \
+    libimage-exiftool-perl \
+    binwalk \
+    socat \
+    ltrace \
+    strace \
+    patchelf \
+    elfutils \
+    unzip \
+    p7zip-full \
+    steghide \
+    foremost \
+    jq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
