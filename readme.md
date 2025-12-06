@@ -1,4 +1,4 @@
-# Docker Compose & Docker コマンドまとめ
+# Docker Compose & Docker
 
 ## 前提条件
 - Docker と Docker Compose がインストールされていること。
@@ -11,7 +11,7 @@
 ```shell
 docker compose up -d
 ```
-- サービスをデタッチモードで起動。ログは表示されず、バックグラウンドで実行。
+- -dオプションはデタッチモードでの起動。
 - 初回実行時はイメージのビルドも自動で行われる。
 
 ### コンテナのシェルアクセス（docker compose exec 方式）
@@ -25,7 +25,7 @@ docker compose exec kali bash
 docker compose up -d --build
 ```
 - `--build` オプションで Dockerfile の変更を反映し、キャッシュを無視して再ビルド。
-- 開発中に Dockerfile を修正した場合に便利。
+- 開発中に Dockerfile を修正した場合に使う。
 
 ### その他
 - **ログの確認**: `docker compose logs`（リアルタイム表示: `docker compose logs -f`）
@@ -105,6 +105,8 @@ Docker のリソース（イメージ、コンテナ、ボリューム）を表�
 - パス区切りは `/` で統一（Git Bash の場合）。ボリュームマウントで権限エラーが出る場合は、Docker Desktop の設定を確認。
 - コンテナが起動しない場合、`docker compose logs` でエラーログを確認。ビルドエラー時は `--no-cache` を追加。
 - Dockerfile や docker-compose.yml を変更したら、`docker compose up -d --build` で反映。
+
+---
 
 ## dockerコマンドでDockerデーモンにアクセスする権限がない場合
 
