@@ -7,7 +7,7 @@ services:
 
     # ホストOSの./picoCTFフォルダを、コンテナ内の /workspace に共有する
     volumes:
-      - ./picoCTF:/workspace
+      - ./CTF:/workspace
 
     # コンテナ起動時の初期作業ディレクトリ
     working_dir: /workspace
