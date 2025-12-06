@@ -105,3 +105,13 @@ Docker のリソース（イメージ、コンテナ、ボリューム）を表�
 - パス区切りは `/` で統一（Git Bash の場合）。ボリュームマウントで権限エラーが出る場合は、Docker Desktop の設定を確認。
 - コンテナが起動しない場合、`docker compose logs` でエラーログを確認。ビルドエラー時は `--no-cache` を追加。
 - Dockerfile や docker-compose.yml を変更したら、`docker compose up -d --build` で反映。
+
+## dockerコマンドでDockerデーモンにアクセスする権限がない場合
+
+sudoをつければ実行できるが、dockerグループにユーザーを追加したほうが簡便になる
+
+
+```shell
+sudo usermod -aG docker $USER
+newgrp docker
+```
